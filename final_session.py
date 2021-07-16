@@ -3,6 +3,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -49,8 +50,8 @@ def main():
             st.subheader('Random Forest Classifier')
             model = RandomForestClassifier(n_estimators = n_estimators)
             model.fit(x_train, y_train)
-            predict = model.predict(x_test)
-            accuracy = accuracy_score(y_test, predict)
+            predic = model.predict(x_test)
+            accuracy = accuracy_score(y_test, predic)
             st.write("Accuracy", accuracy)
             st.subheader("Confusion Matrix")
             plot_confusion_matrix(model , x_test, y_test , display_labels = ['Setosa', 'Versicolor', 'Verginica'])
