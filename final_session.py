@@ -3,6 +3,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -56,14 +57,18 @@ def main():
             plot_confusion_matrix(model , x_test, y_test , display_labels = ['Setosa', 'Versicolor', 'Verginica'])
             st.pyplot()
             
+    
             model_run = True
+
+    
+            
             
         if model_run == True:
             st.subheader("Predict")
             pl = st.number_input('Petal_Length')
-            pw = st.number_input('Petal_Width')
+            pw = st.number_input('Petal_Wimodelh')
             sl = st.number_input('Sepal_Length')
-            sw = st.number_input('Sepal_Width')
+            sw = st.number_input('Sepal_Wimodelh')
         
         if st.button('Predict'):
             species = model.predict([[pl,pw,sl,sw]])
@@ -77,6 +82,46 @@ def main():
             elif species == 2:
                 species = 'Iris-Verginica'
                 st.succes('This species of Iris is {}'.format(species))
+
+
+    
+    elif classifier == 'DecisionTrees':
+        st.subheader('Decision Tree Classifier')
+        
+        if st.sidebar.checkbox('classify', key = 'classify'):
+            st.subheader('Decision Tree Classifier')
+            model = DecisionTreeClassifier()
+            model.fit(x_train, y_train)
+            predic = model.predict(x_test)
+            accuracy = accuracy_score(y_test, predic)
+            st.write("Accuracy", accuracy)
+            st.subheader("Confusion Matrix")
+            plot_confusion_matrix(model , x_test, y_test , display_labels = ['Setosa', 'Versicolor', 'Verginica'])
+            st.pyplot()
+            
+            model_run = True
+
+        if model_run == True:
+            st.subheader("Predict")
+            pl = st.number_input('Petal_Length')
+            pw = st.number_input('Petal_Wimodelh')
+            sl = st.number_input('Sepal_Length')
+            sw = st.number_input('Sepal_Wimodelh')
+        
+            if st.button('Predict'):
+                species = model.predict([[pl,pw,sl,sw]])
+            
+                if species == 0:
+                    species = 'Iris-Setosa'
+                    st.succes('This species of Iris is {}'.format(species))
+                elif species == 1:
+                    species = 'Iris-Versicolor'
+                    st.succes('This species of Iris is {}'.format(species))
+                elif species == 2:
+                    species = 'Iris-Verginica'
+                    st.succes('This species of Iris is {}'.format(species))
+
+
 
 if __name__ == '__main__':
     main()
