@@ -107,18 +107,19 @@ def main():
             sl = st.number_input('Sepal_Length')
             sw = st.number_input('Sepal_Wimodelh')
         
-            if st.button('Predict'):
-                species = model.predict([[pl,pw,sl,sw]])
+        if st.button('Predict'):
+            species = model.predict([[pl,pw,sl,sw]])
             
-                if species == 0:
-                    species = 'Iris-Setosa'
-                    st.succes('This species of Iris is {}'.format(species))
-                elif species == 1:
-                    species = 'Iris-Versicolor'
-                    st.succes('This species of Iris is {}'.format(species))
-                elif species == 2:
-                    species = 'Iris-Verginica'
-                    st.succes('This species of Iris is {}'.format(species))
+            if species == 0:
+                species = 'Iris-Setosa'
+                st.succes('This species of Iris is {}'.format(species))
+            elif species == 1:
+                species = 'Iris-Versicolor'
+                st.succes('This species of Iris is {}'.format(species))
+            elif species == 2:
+                species = 'Iris-Verginica'
+                st.succes('This species of Iris is {}'.format(species))
+
 
 
 
