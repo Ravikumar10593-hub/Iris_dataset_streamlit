@@ -52,25 +52,25 @@ def main():
             
             model_run = True
             
-            if model_run == True:
-                st.subheader('Predict')
-                pl = st.number_input('Petal_Length')
-                pw = st.number_input('Petal_Width')
-                sl = st.number_input('Sepal_Length')
-                sw = st.number_input('Sepal_Width')
+    if model_run == True:
+        st.subheader('Predict')
+        pl = st.number_input('Petal_Length')
+        pw = st.number_input('Petal_Width')
+        sl = st.number_input('Sepal_Length')
+        sw = st.number_input('Sepal_Width')
         
-                if st.button('Predict'):
-                species = model.predict([[pl,pw,sl,sw]])
+        if st.button('Predict'):
+            species = model.predict([[pl,pw,sl,sw]])
             
-                    if species == 0:
-                        species = 'Iris-Setosa'
-                        st.success('The species of iris is {}'.format(species))
-                    elif result == 1:
-                        species = 'Iris-Versicolor'
-                        st.success('The species of iris is {}'.format(species))
-                    elif result == 2:
-                        species = 'Iris-Virginica'
-                        st.success('The species of iris is {}'.format(species))
+            if species == 0:
+                species = 'Iris-Setosa'
+                st.success('The species of iris is {}'.format(species))
+            elif result == 1:
+                species = 'Iris-Versicolor'
+                st.success('The species of iris is {}'.format(species))
+            elif result == 2:
+                species = 'Iris-Virginica'
+                st.success('The species of iris is {}'.format(species))
 
     elif classifier == 'DecisionTrees':
         st.subheader('Decision Tree Classifier')
@@ -88,26 +88,25 @@ def main():
             
             model_run = True
 
-            if model_run == True:
-                st.subheader('Predict')
-                pl = st.number_input('Petal_Length')
-                pw = st.number_input('Petal_Width')
-                sl = st.number_input('Sepal_Length')
-                sw = st.number_input('Sepal_Width')
+    if model_run == True:
+        st.subheader('Predict')
+        pl = st.number_input('Petal_Length')
+        pw = st.number_input('Petal_Width')
+        sl = st.number_input('Sepal_Length')
+        sw = st.number_input('Sepal_Width')
         
-                if st.button('Predict'):
-                species = model.predict([[pl,pw,sl,sw]])
+        if st.button('Predict'):
+            species = model.predict([[pl,pw,sl,sw]])
             
-                    if species == 0:
-                        species = 'Iris-Setosa'
-                        st.success('The species of iris is {}'.format(species))
-                    elif result == 1:
-                        species = 'Iris-Versicolor'
-                        st.success('The species of iris is {}'.format(species))
-                    elif result == 2:
-                        species = 'Iris-Virginica'
-                        st.success('The species of iris is {}'.format(species))
-
+            if species == 0:
+                species = 'Iris-Setosa'
+                st.success('The species of iris is {}'.format(species))
+            elif result == 1:
+                species = 'Iris-Versicolor'
+                st.success('The species of iris is {}'.format(species))
+            elif result == 2:
+                species = 'Iris-Virginica'
+                st.success('The species of iris is {}'.format(species))
     
         
     
